@@ -43,9 +43,10 @@ function calculateEmissions() {
   const emissions1 = amount1 * materials[index1].DataItems.DataValueItems.find(item => item.DataModuleCode === "A1-A3 Typical").Value * conversionValue1;
   const emissions2 = amount2 * materials[index2].DataItems.DataValueItems.find(item => item.DataModuleCode === "A1-A3 Typical").Value * conversionValue2;
 
-  document.getElementById('result1').textContent = `Total Emissions for Material 1: ${emissions1.toFixed(2)} kg CO2`;
-  document.getElementById('result2').textContent = `Total Emissions for Material 2: ${emissions2.toFixed(2)} kg CO2`;
-
+function calculateEmissions() {
+  // Existing calculation logic remains unchanged
+  document.getElementById('result1').innerHTML = `Total klimatpåverkan för Material 1:<br>${(emissions1.toFixed(0)).replace(/\B(?=(\d{3})+(?!\d))/g, " ")} kg CO2`;
+  document.getElementById('result2').innerHTML = `Total klimatpåverkan för Material 2:<br>${(emissions2.toFixed(0)).replace(/\B(?=(\d{3})+(?!\d))/g, " ")} kg CO2`;
   updateChart([emissions1, emissions2]);
 }
 
