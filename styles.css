@@ -64,13 +64,18 @@ body {
   button:hover {
     background-color: #4a50e0;
   }
-  
-  .results {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-  }
-  
+
+.results {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.results > div {
+  margin-right: 20px; /* Adjust as needed */
+}
+
   #result1, #result2 {
     background-color: #e8e8e8;
     padding: 10px;
