@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Material Emission Calculator</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+    <h1>Material Emission Comparison</h1>
+    <form id="emissionForm">
+      <div class="inputs-container">
+        <div class="material-input">
+          <label for="materialSelect1">Select Material 1:</label>
+          <select id="materialSelect1" onchange="updateUnits(1)">
+            <!-- Options will be populated by JavaScript -->
+          </select>
+          <input type="number" id="amount1" placeholder="Enter Amount" required>
+          <select id="unitType1">
+            <!-- Units will be updated based on selection -->
+          </select>
+        </div>
+        <div class="material-input">
+          <label for="materialSelect2">Select Material 2:</label>
+          <select id="materialSelect2" onchange="updateUnits(2)">
+            <!-- Options will be populated by JavaScript -->
+          </select>
+          <input type="number" id="amount2" placeholder="Enter Amount" required>
+          <select id="unitType2">
+            <!-- Units will be updated based on selection -->
+          </select>
+        </div>
+      </div>
+      <button type="button" onclick="calculateEmissions()">Compare Emissions</button>
+    </form>
+
+    <div class="results">
+      <div id="result1"></div>
+      <div id="result2"></div>
+    </div>
+    <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+</div>
+
+<script src="app.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+</body>
+</html>
