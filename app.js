@@ -52,9 +52,14 @@ function calculateEmissions() {
 let chartInstance = null;
 
 function updateChart(data) {
+  console.log("Initializing chart with data:", data); // Check the output in the console
   const ctx = document.getElementById('chartContainer').getContext('2d');
+  if (!ctx) {
+    console.error("Failed to get context. Is the 'chartContainer' correctly configured?");
+    return;
+  }
   if (chartInstance) {
-    chartInstance.destroy(); // Destroy the previous chart instance if it exists
+    chartInstance.destroy(); // Ensure old chart instances are cleared
   }
   chartInstance = new Chart(ctx, {
     type: 'bar',
