@@ -80,6 +80,10 @@ body {
     width: 48%;
     text-align: center;
   }
+
+input[type="number"] {
+    width: 50%; /* Adjust this value as needed */
+}
   
   /* Media query for responsive design */
   @media (max-width: 600px) {
