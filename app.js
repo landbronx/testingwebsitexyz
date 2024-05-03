@@ -14,8 +14,8 @@ function populateMaterials() {
   const select1 = document.getElementById('materialSelect1');
   const select2 = document.getElementById('materialSelect2');
   materials.forEach((material, index) => {
-    let option1 = new Option(material.Name, index);
-    let option2 = new Option(material.Name, index);
+    let option1 = new Option(material.Names.SV, index); // Use Swedish names
+    let option2 = new Option(material.Names.SV, index); // Use Swedish names
     select1.add(option1);
     select2.add(option2);
   });
