@@ -1,3 +1,5 @@
+// Add your JavaScript code here
+
 let materials = []; // This will hold your materials data
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -14,8 +16,8 @@ function populateMaterials() {
   const select1 = document.getElementById('materialSelect1');
   const select2 = document.getElementById('materialSelect2');
   materials.forEach((material, index) => {
-    let option1 = new Option(material.Names.SV, index);
-    let option2 = new Option(material.Names.SV, index);
+    let option1 = new Option(material.Name, index);
+    let option2 = new Option(material.Name, index);
     select1.add(option1);
     select2.add(option2);
   });
@@ -52,14 +54,9 @@ function calculateEmissions() {
 let chartInstance = null;
 
 function updateChart(data) {
-  console.log("Initializing chart with data:", data); // Check the output in the console
-  const ctx = document.getElementById('chartContainer').getContext('2d');
-  if (!ctx) {
-    console.error("Failed to get context. Is the 'chartContainer' correctly configured?");
-    return;
-  }
+  const ctx = document.getElementById('myChart').getContext('2d');
   if (chartInstance) {
-    chartInstance.destroy(); // Ensure old chart instances are cleared
+    chartInstance.destroy(); // Destroy the previous chart instance if it exists
   }
   chartInstance = new Chart(ctx, {
     type: 'bar',
