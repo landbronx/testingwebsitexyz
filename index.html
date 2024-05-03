@@ -1,59 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
-    <title>Calorie Counter</title>
-  </head>
-  <body>
-    <main>
-      <h1>Calorie Counter</h1>
-      <div class="container">
-        <form id="calorie-counter">
-          <label for="budget">Budget</label>
-          <input
-            type="number"
-            min="0"
-            id="budget"
-            placeholder="Daily calorie budget"
-            required
-          />
-          <fieldset id="breakfast">
-            <legend>Breakfast</legend>
-            <select id="breakfast-predefined">
-              <option value="">Select an item</option>
-              <option value="100">Oatmeal (100 Calories)</option>
-              <option value="200">Pancakes (200 Calories)</option>
-              <option value="300">Eggs (300 Calories)</option>
-            </select>
-            <button type="button" onclick="addPredefinedEntry('breakfast')">Add</button>
-            <div class="input-container"></div>
-          </fieldset>
-          
-          <div class="controls">
-            <span>
-              <label for="entry-dropdown">Add food or exercise:</label>
-              <select id="entry-dropdown" name="options">
-                <option value="breakfast" selected>Breakfast</option>
-                <option value="lunch">Lunch</option>
-                <option value="dinner">Dinner</option>
-                <option value="snacks">Snacks</option>
-                <option value="exercise">Exercise</option>
-              </select>
-              <button type="button" id="add-entry">Add Entry</button>
-            </span>
-          </div>
-          <div>
-            <button type="submit">
-              Calculate Remaining Calories
-            </button>
-            <button type="button" id="clear">Clear</button>
-          </div>
-        </form>
-        <div id="output" class="output hide"></div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carbon Budget Web App</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Step 1: Create Project/Input</h2>
+    <form id="projectForm">
+      <!-- Choose type of project -->
+      <div class="form-group">
+        <label for="projectType">Choose type of project:</label>
+        <select id="projectType" name="projectType">
+          <option value="new">New</option>
+          <option value="renovation">Renovation</option>
+        </select>
       </div>
-    </main>
-    <script src="./script.js"></script>
-  </body>
+      
+      <!-- Choose type of building -->
+      <div class="form-group">
+        <label for="buildingType">Choose type of building:</label>
+        <select id="buildingType" name="buildingType">
+          <option value="office">Office</option>
+          <option value="residential">Residential</option>
+        </select>
+      </div>
+      
+      <!-- If they know Stomme -->
+      <div class="form-group">
+        <label for="structureType">Choose structure type:</label>
+        <select id="structureType" name="structureType">
+          <option value="steel">Stål</option>
+          <option value="concrete">Betong</option>
+          <option value="wood">Trä</option>
+        </select>
+      </div>
+      
+      <!-- Input area size -->
+      <div class="form-group">
+        <label for="areaSize">Input area size:</label>
+        <input type="number" id="areaSize" name="areaSize" />
+      </div>
+      
+      <!-- Choose completion year -->
+      <div class="form-group">
+        <label for="completionYear">Choose completion year:</label>
+        <input type="number" id="completionYear" name="completionYear" />
+      </div>
+      
+      <!-- Choose certification -->
+      <div class="form-group">
+        <label for="certification">Choose certification:</label>
+        <select id="certification" name="certification">
+          <option value="Miljöbyggnad">Miljöbyggnad</option>
+          <option value="BREEAM">BREEAM</option>
+          <option value="NollCO2">NollCO2</option>
+          <option value="LEED">LEED</option>
+        </select>
+      </div>
+      
+      <!-- Choose climate goal -->
+      <div class="form-group">
+        <label for="climateGoal">Choose climate goal:</label>
+        <select id="climateGoal" name="climateGoal">
+          <!-- Add options for climate goals -->
+        </select>
+      </div>
+      
+      <!-- Submit button -->
+      <button type="submit">Submit</button>
+    </form>
+    
+    <h2>Step 2: Results</h2>
+    <div id="results">
+      <!-- Display results here -->
+    </div>
+  </div>
+  
+  <script src="index.js"></script>
+</body>
 </html>
