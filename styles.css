@@ -27,7 +27,7 @@ body {
   }
   
   .material-input {
-    width: 48%;  /* Allows two inputs side by side */
+    width: 50%;  /* Allows two inputs side by side */
   }
   
   form {
