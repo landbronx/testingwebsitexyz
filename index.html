@@ -39,10 +39,49 @@
       <div id="result1"></div>
       <div id="result2"></div>
     </div>
-    <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+    <!-- This is where the canvas will be dynamically added -->
+    <div id="chartContainer"></div>
 </div>
 
 <script src="app.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+<script>
+  // Dynamically create the canvas element
+  const canvas = document.createElement('canvas');
+  canvas.id = 'myChart';
+  
+  // Append the canvas to the chartContainer div
+  document.getElementById('chartContainer').appendChild(canvas);
+
+  // JavaScript code to initialize and render the chart using Chart.js
+  const ctx = document.getElementById('myChart');
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Material 1', 'Material 2'],
+      datasets: [{
+        label: 'CO2 Emissions (kg CO2e)',
+        data: [0, 0], // Default data, will be updated dynamically
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)'
+        ],
+        borderColor: [
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)'
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>
 </body>
 </html>
