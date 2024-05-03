@@ -1,0 +1,28 @@
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.inputs-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.material-input {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 48%;
+}
+
+.material-input label,
+.material-input input,
+.material-input select {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+input[type="number"] {
+    width: 50%; /* Adjust based on design preference */
+}
