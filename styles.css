@@ -6,21 +6,30 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;  /* Use full screen height */
-    background-color: #f4f4f4;  /* Soft background color */
-    color: #333;  /* Dark gray text for better readability */
+    height: 100vh;
+    background-color: #f4f4f4;
+    color: #333;
   }
   
-  /* Container for title and form */
   .container {
-    width: 100%;  /* Ensure container takes full width to center content properly */
-    max-width: 350px;  /* Maximum width of the container to keep it manageable on larger screens */
+    width: 100%;
+    max-width: 600px;  /* Increased width to accommodate two columns */
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 20px;  /* Added padding for overall spacing */
   }
   
-  /* Form styling */
+  .inputs-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .material-input {
+    width: 48%;  /* Allows two inputs side by side */
+  }
+  
   form {
     background: white;
     padding: 20px;
@@ -29,56 +38,59 @@ body {
     width: 100%;
   }
   
-  /* Title styling */
   h1 {
     color: #333;
-    margin-bottom: 20px; /* Space between the title and the form */
+    margin-bottom: 20px;
   }
   
-  /* Label styling */
-  label {
-    margin-top: 20px;
-    font-size: 16px;
+  label, input, select, button {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
   }
   
-  /* Input and select elements styling */
-  input, select {
-    width: calc(100% - 20px);
+  input, select, button {
     padding: 10px;
-    margin-top: 5px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    box-sizing: border-box;  /* Include padding and border in width */
   }
   
-  /* Button styling */
   button {
-    width: 100%;
-    padding: 10px;
-    background-color: #5c67f2; /* A nice shade of blue */
+    background-color: #5c67f2;
     color: white;
-    border: none;
-    border-radius: 4px;
-    margin-top: 20px;
     cursor: pointer;
-    transition: background-color 0.3s;
   }
   
   button:hover {
-    background-color: #4a50e0; /* Darker shade of blue for hover effect */
+    background-color: #4a50e0;
   }
   
-  /* Result display styling */
-  #result {
-    margin-top: 20px;
-    padding: 10px;
-    background-color: #5c67f2; /* Change background to match button color for consistency */
-    color: white; /* White text for better contrast */
-    border-radius: 4px;
-    font-size: 16px;
-    text-align: center;
+  .results {
+    display: flex;
+    justify-content: space-between;
     width: 100%;
-    box-sizing: border-box;
-    font-weight: bold; /* Make the font bolder */
+  }
+  
+  #result1, #result2 {
+    background-color: #e8e8e8;
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 20px;
+    width: 48%;
+    text-align: center;
+  }
+  
+  /* Media query for responsive design */
+  @media (max-width: 600px) {
+    .inputs-container {
+      flex-direction: column;
+    }
+    .material-input, #result1, #result2 {
+      width: 100%;  /* Full width for smaller devices */
+      margin-top: 10px;  /* Add some top margin for spacing */
+    }
+    .results {
+      flex-direction: column;
+    }
   }
   
