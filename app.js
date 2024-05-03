@@ -14,8 +14,8 @@ function populateMaterials() {
   const select1 = document.getElementById('materialSelect1');
   const select2 = document.getElementById('materialSelect2');
   materials.forEach((material, index) => {
-    let option1 = new Option(material.Names.SV, index); // Using Swedish names
-    let option2 = new Option(material.Names.SV, index); // Using Swedish names
+    let option1 = new Option(material.Name, index);
+    let option2 = new Option(material.Name, index);
     select1.add(option1);
     select2.add(option2);
   });
@@ -43,8 +43,8 @@ function calculateEmissions() {
   const emissions1 = amount1 * materials[index1].DataItems.DataValueItems.find(item => item.DataModuleCode === "A1-A3 Typical").Value * conversionValue1;
   const emissions2 = amount2 * materials[index2].DataItems.DataValueItems.find(item => item.DataModuleCode === "A1-A3 Typical").Value * conversionValue2;
 
-  document.getElementById('result1').textContent = `Totala utsläpp för Material 1: ${emissions1.toFixed(2)} kg CO2e`;
-  document.getElementById('result2').textContent = `Totala utsläpp för Material 2: ${emissions2.toFixed(2)} kg CO2e`;
+  document.getElementById('result1').textContent = `Total Emissions for Material 1: ${emissions1.toFixed(2)} kg CO2e`;
+  document.getElementById('result2').textContent = `Total Emissions for Material 2: ${emissions2.toFixed(2)} kg CO2e`;
 
   updateChart([emissions1, emissions2]);
 }
@@ -61,7 +61,7 @@ function updateChart(data) {
     data: {
       labels: ['Material 1', 'Material 2'],
       datasets: [{
-        label: 'CO2 Utsläpp (kg CO2e)',
+        label: 'CO2 Emissions (kg CO2e)',
         data: data,
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',
