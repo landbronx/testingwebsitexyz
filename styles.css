@@ -1,0 +1,7 @@
+body {
+  font-family: Arial, sans-serif;
+}
+label, select, input {
+  margin-top: 10px;
+  display: block;
+}
