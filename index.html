@@ -7,26 +7,42 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<h1>Material Emission Calculator</h1>
-<form id="emissionForm">
-  <label for="materialSelect">Select Material:</label>
-  <select id="materialSelect" onchange="updateUnits()">
-    <!-- Options will be populated by JavaScript -->
-  </select>
+<div class="container">
+    <h1>Material Emission Comparison</h1>
+    <form id="emissionForm">
+      <div class="inputs-container">
+        <div class="material-input">
+          <label for="materialSelect1">Select Material 1:</label>
+          <select id="materialSelect1" onchange="updateUnits(1)">
+            <!-- Options will be populated by JavaScript -->
+          </select>
+          <input type="number" id="amount1" placeholder="Enter Amount" required>
+          <select id="unitType1">
+            <!-- Units will be updated based on selection -->
+          </select>
+        </div>
+        <div class="material-input">
+          <label for="materialSelect2">Select Material 2:</label>
+          <select id="materialSelect2" onchange="updateUnits(2)">
+            <!-- Options will be populated by JavaScript -->
+          </select>
+          <input type="number" id="amount2" placeholder="Enter Amount" required>
+          <select id="unitType2">
+            <!-- Units will be updated based on selection -->
+          </select>
+        </div>
+      </div>
+      <button type="button" onclick="calculateEmissions()">Compare Emissions</button>
+    </form>
 
-  <label for="amount">Enter Amount:</label>
-  <input type="number" id="amount" required>
-
-  <label for="unitType">Unit Type:</label>
-  <select id="unitType">
-    <!-- Units will be updated based on selection -->
-  </select>
-
-  <button type="button" onclick="calculateEmissions()">Calculate Emissions</button>
-</form>
-
-<div id="result"></div>
+    <div class="results">
+      <div id="result1"></div>
+      <div id="result2"></div>
+    </div>
+    <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+</div>
 
 <script src="app.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
 </body>
 </html>
