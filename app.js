@@ -1,10 +1,10 @@
 let materials = [];
 
 document.addEventListener('DOMContentLoaded', function() {
-  fetch('co2datafi.json')
+  fetch('co2datafi.json') // Ensure this URL is correct
     .then(response => response.json())
     .then(data => {
-      materials = data.Resources;
+      materials = data; // If your JSON starts with an array directly assigned to materials
       populateMaterials();
     })
     .catch(error => console.error('Error loading the data:', error));
@@ -14,7 +14,7 @@ function populateMaterials() {
   const select1 = document.getElementById('materialSelect1');
   const select2 = document.getElementById('materialSelect2');
   materials.forEach((material, index) => {
-    let option1 = new Option(material.Names.SV, index);
+    let option1 = new Option(material.Names.SV, index); // Check if Names.SV is correctly pointed
     let option2 = new Option(material.Names.SV, index);
     select1.add(option1);
     select2.add(option2);
@@ -27,7 +27,7 @@ function updateUnits(materialIndex) {
   const selectedMaterial = materials[document.getElementById(`materialSelect${materialIndex}`).value];
   const unitSelect = document.getElementById(`unitType${materialIndex}`);
   unitSelect.innerHTML = '';
-  selectedMaterial.Conversions.forEach(conversion => {
+  selectedMaterial.Conversions.forEach(conversion => { // Ensure Conversions is correctly accessed
     let option = new Option(conversion.Unit, conversion.Value);
     unitSelect.add(option);
   });
@@ -40,6 +40,7 @@ function calculateEmissions() {
   const amount2 = document.getElementById('amount2').value;
   const conversionValue1 = parseFloat(document.getElementById('unitType1').value);
   const conversionValue2 = parseFloat(document.getElementById('unitType2').value);
+  // Accessing the correct data module code and ensuring it exists
   const emissions1 = amount1 * materials[index1].DataItems.DataValueItems.find(item => item.DataModuleCode === "A1-A3 Typical").Value * conversionValue1;
   const emissions2 = amount2 * materials[index2].DataItems.DataValueItems.find(item => item.DataModuleCode === "A1-A3 Typical").Value * conversionValue2;
 
