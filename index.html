@@ -7,27 +7,25 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="container">
-    <h1>Material Emission Calculator</h1>
-    <form id="emissionForm">
-      <label for="materialSelect">Select Material:</label>
-      <select id="materialSelect" onchange="updateUnits()">
-        <!-- Options will be populated by JavaScript -->
-      </select>
+<h1>Material Emission Calculator</h1>
+<form id="emissionForm">
+  <label for="materialSelect">Select Material:</label>
+  <select id="materialSelect" onchange="updateUnits()">
+    <!-- Options will be populated by JavaScript -->
+  </select>
 
-      <label for="amount">Enter Amount:</label>
-      <input type="number" id="amount" required>
+  <label for="amount">Enter Amount:</label>
+  <input type="number" id="amount" required>
 
-      <label for="unitType">Unit Type:</label>
-      <select id="unitType">
-        <!-- Units will be updated based on selection -->
-      </select>
+  <label for="unitType">Unit Type:</label>
+  <select id="unitType">
+    <!-- Units will be updated based on selection -->
+  </select>
 
-      <button type="button" onclick="calculateEmissions()">Calculate Emissions</button>
-    </form>
+  <button type="button" onclick="calculateEmissions()">Calculate Emissions</button>
+</form>
 
-    <div id="result"></div>
-</div>
+<div id="result"></div>
 
 <script src="app.js"></script>
 </body>
